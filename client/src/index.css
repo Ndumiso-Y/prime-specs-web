@@ -120,10 +120,12 @@
 .site-header.is-scrolled { background:rgba(255,255,255,.94); box-shadow:0 1px 0 rgba(10,35,25,.09); }
 .header-inner { width:min(100% - 2rem, 1380px); margin-inline:auto; display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:2rem; }
 .brand-link { display:inline-flex; width:max-content; }
-.brand-mark { display:inline-flex; align-items:center; gap:.7rem; }
+.brand-mark { display:inline-flex; align-items:center; flex: 0 0 auto; }
+.brand-logo { display:block; width:auto; height:48px; max-width:200px; object-fit:contain; flex-shrink:0; }
+@media (max-width:767px) { .brand-logo { height:40px; max-width:160px; } }
 .brand-icon { width:2.5rem; height:1.75rem; display:grid; place-items:center; border-radius:50%; background:var(--prime-yellow); color:var(--prime-green-deep); transform:rotate(-4deg); }
 .brand-icon svg { width:1.6rem; }
-.brand-word { font-family:var(--font-display); font-size:1.18rem; font-weight:800; letter-spacing:-.055em; }
+.brand-word { display:none; }
 .desktop-nav { display:flex; justify-content:center; gap:clamp(.8rem,2vw,1.8rem); }
 .desktop-nav a { font-size:.78rem; font-weight:750; color:#4f5752; position:relative; }
 .desktop-nav a::after { content:""; position:absolute; height:2px; left:0; right:100%; bottom:-.55rem; background:var(--prime-green); transition:right 200ms var(--ease-out); }
