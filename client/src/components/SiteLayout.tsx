@@ -60,19 +60,19 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             {open ? <X /> : <Menu />}
           </button>
         </div>
-        <div id="mobile-navigation" className={`mobile-menu ${open ? "is-open" : ""}`} aria-hidden={!open}>
-          <nav aria-label="Mobile navigation">
-            {NAV_ITEMS.map((item, index) => (
-              <Link key={item.href} href={item.href} className={isActive(item.href) ? "active" : ""}>
-                <span>0{index + 1}</span>{item.label}
-              </Link>
-            ))}
-          </nav>
-          <a className="button button-yellow mobile-menu-cta" href={whatsappUrl()} target="_blank" rel="noreferrer">
-            <MessageCircle aria-hidden="true" /> WhatsApp Prime Specs
-          </a>
-        </div>
       </header>
+      <div id="mobile-navigation" className={`mobile-menu ${open ? "is-open" : ""}`} aria-hidden={!open}>
+        <nav aria-label="Mobile navigation">
+          {NAV_ITEMS.map((item, index) => (
+            <Link key={item.href} href={item.href} className={isActive(item.href) ? "active" : ""}>
+              <span>0{index + 1}</span>{item.label}
+            </Link>
+          ))}
+        </nav>
+        <a className="button button-yellow mobile-menu-cta" href={whatsappUrl()} target="_blank" rel="noreferrer">
+          <MessageCircle aria-hidden="true" /> WhatsApp Prime Specs
+        </a>
+      </div>
 
       <main id="main-content">{children}</main>
 

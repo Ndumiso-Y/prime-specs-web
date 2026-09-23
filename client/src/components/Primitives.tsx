@@ -81,7 +81,7 @@ export function EditorialVisual({
 
   return (
     <div className={`editorial-visual editorial-${variant} ${className}`} aria-label={label} role="img">
-      <img src={imageSrc} alt={label} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+      <img src={imageSrc} alt={label} style={{ position: 'absolute', inset: 0, display: 'block', width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
     </div>
   );
 }
