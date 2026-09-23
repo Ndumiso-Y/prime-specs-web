@@ -21,10 +21,23 @@ pnpm install
 pnpm dev       # local development server
 pnpm check     # TypeScript validation
 pnpm build     # production build
-pnpm start     # serve the production bundle
+pnpm preview   # serve the production bundle locally
 ```
 
 The production build is written to `dist/`.
+
+## Deployment (Vercel)
+
+The site is a static Vite single-page application with no server component.
+`vercel.json` pins the settings Vercel should use:
+
+| Setting | Value |
+| --- | --- |
+| Framework | Vite |
+| Install command | `pnpm install --frozen-lockfile` |
+| Build command | `pnpm build` |
+| Output directory | `dist` |
+| SPA routing | every path is rewritten to `index.html`; static assets resolve normally |
 
 ## Routes
 
@@ -38,12 +51,7 @@ The production build is written to `dist/`.
 
 ## Environment variables
 
-The static site does not require application secrets. The scaffold optionally reads:
-
-- `VITE_ANALYTICS_ENDPOINT`
-- `VITE_ANALYTICS_WEBSITE_ID`
-
-No secrets are committed.
+No environment variables are required in production. No secrets are committed.
 
 ## Asset status
 
@@ -64,7 +72,7 @@ Reusable `EditorialVisual` components currently provide polished, neutral visual
 | Exterior imagery | `prime-specs-street-facing-*` | Locations |
 | Interior imagery | `prime-specs-store-*` | Locations and supporting sections |
 
-For Manus WebDev deployment, upload large media with `manus-upload-file --webdev` and use the returned `/manus-storage/...` paths. For an independent GitHub/Vercel deployment, place optimized assets in the hosting/CDN solution selected by the maintainer and update the component props or replace `EditorialVisual` instances with responsive image components.
+Approved photography and the official transparent logo now live under `client/public/images/` and are served directly from the static build.
 
 ## Verified business information used
 
