@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Prime Specs — Professional eye care and eyewear in Rustenburg</title>
+  <desc id="desc">A green, cream and yellow social preview with an abstract eyeglasses motif.</desc>
+  <rect width="1200" height="630" fill="#f7f6f1"/>
+  <rect x="42" y="42" width="1116" height="546" rx="34" fill="#083c2e"/>
+  <g opacity=".13" stroke="#fff"><path d="M42 180h1116M42 318h1116M42 456h1116"/><path d="M250 42v546M458 42v546M666 42v546M874 42v546"/></g>
+  <circle cx="1054" cy="134" r="32" fill="#d83b34"/>
+  <circle cx="1000" cy="500" r="88" fill="#f5c928"/>
+  <g fill="none" stroke="#fff" stroke-width="24"><rect x="707" y="220" width="180" height="140" rx="60" transform="rotate(-6 797 290)"/><rect x="905" y="220" width="180" height="140" rx="60" transform="rotate(6 995 290)"/><path d="M879 282h40" stroke-linecap="round"/></g>
+  <text x="104" y="156" fill="#f5c928" font-family="Arial, sans-serif" font-size="25" font-weight="700" letter-spacing="4">RUSTENBURG · SOUTH AFRICA</text>
+  <text x="104" y="288" fill="#fff" font-family="Arial, sans-serif" font-size="76" font-weight="700">Prime Specs</text>
+  <text x="104" y="366" fill="#dfece5" font-family="Arial, sans-serif" font-size="42">Professional eye care.</text>
+  <text x="104" y="418" fill="#dfece5" font-family="Arial, sans-serif" font-size="42">Eyewear that fits your life.</text>
+  <text x="104" y="522" fill="#fff" font-family="Arial, sans-serif" font-size="22" opacity=".72">primespecs.co.za</text>
+</svg>

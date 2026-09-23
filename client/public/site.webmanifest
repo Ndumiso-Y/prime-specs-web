@@ -1,0 +1,9 @@
+{
+  "name": "Prime Specs",
+  "short_name": "Prime Specs",
+  "description": "Professional eye care and eyewear in Rustenburg.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f6f1",
+  "theme_color": "#0b5d43"
+}
