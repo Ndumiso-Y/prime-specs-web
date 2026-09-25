@@ -38,12 +38,13 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     };
   }, [open]);
 
+  const isHome = location === "/";
   const isActive = (href: string) => (href === "/" ? location === "/" : location.startsWith(href));
 
   return (
-    <div className="site-shell">
+    <div className={`site-shell ${isHome ? "home-route" : ""}`}>
       <a className="skip-link" href="#main-content">Skip to content</a>
-      <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
+      <header className={`site-header ${isHome ? "site-header-home" : ""} ${scrolled ? "is-scrolled" : ""} ${open ? "is-menu-open" : ""}`}>
         <div className="header-inner">
           <Link href="/" className="brand-link" aria-label="Prime Specs home"><BrandMark /></Link>
           <nav className="desktop-nav" aria-label="Primary navigation">

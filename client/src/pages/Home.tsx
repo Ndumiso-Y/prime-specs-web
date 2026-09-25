@@ -16,17 +16,25 @@ export default function Home() {
     <>
       <Seo title="Prime Specs | Optometrist & Eyewear in Rustenburg" description="Professional eye examinations, prescription spectacles, frames and sunglasses from Prime Specs at two Rustenburg locations." />
       <section className="home-hero">
-        <Container className="home-hero-grid">
+        <picture className="home-hero-media">
+          <source media="(max-width: 900px)" srcSet="/images/prime-specs/hero/hero-mobile.png" />
+          <img src="/images/prime-specs/hero/hero.png" alt="Woman wearing bold black eyeglasses" fetchPriority="high" decoding="async" />
+        </picture>
+        <div className="home-hero-overlay" aria-hidden="true" />
+        <Container className="home-hero-inner">
           <div className="hero-copy reveal">
-            <Eyebrow>Rustenburg · South Africa</Eyebrow>
-            <h1>Professional eye care.<br /><span>Eyewear that fits your life.</span></h1>
-            <p>Eye examinations, prescription spectacles, frames and sunglasses from Prime Specs in Rustenburg.</p>
-            <div className="button-row">
-              <a className="button button-primary" href={whatsappUrl()} target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" /> Book via WhatsApp</a>
-              <Link className="button button-text" href="/locations">Find a branch <ArrowRight aria-hidden="true" /></Link>
+            <div className="hero-heading">
+              <Eyebrow>Rustenburg · South Africa</Eyebrow>
+              <h1>Professional<br />eye care.<br /><span>Eyewear<br />that fits<br />your life.</span></h1>
+            </div>
+            <div className="hero-actions">
+              <p>Eye examinations, prescription spectacles, frames and sunglasses from Prime Specs in Rustenburg.</p>
+              <div className="button-row">
+                <a className="button button-primary" href={whatsappUrl()} target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" /> Book via WhatsApp</a>
+                <Link className="button button-text" href="/locations">Find a branch <ArrowRight aria-hidden="true" /></Link>
+              </div>
             </div>
           </div>
-          <EditorialVisual variant="hero" label="Prime Specs hero — authentic brand photography slot" className="hero-visual" />
           <a href="#services" className="hero-scroll" aria-label="Scroll to services"><ArrowDown aria-hidden="true" /></a>
         </Container>
       </section>

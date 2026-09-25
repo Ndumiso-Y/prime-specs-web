@@ -69,7 +69,7 @@ export function EditorialVisual({
   className?: string;
 }) {
   const images = {
-    hero: "/images/prime-specs/hero/hero.jpg",
+    hero: "/images/prime-specs/hero/hero.png",
     care: "/images/prime-specs/eye-care/exam-room.jpg",
     eyewear: className.includes("collage-small") ? "/images/prime-specs/eyewear/frames.jpg" : "/images/prime-specs/eyewear/display-wall.jpg",
     community: "/images/prime-specs/community/outreach.jpg",
@@ -78,10 +78,14 @@ export function EditorialVisual({
   };
 
   const imageSrc = images[variant];
+  const mobileImageSrc = variant === "hero" ? "/images/prime-specs/hero/hero-mobile.png" : null;
 
   return (
     <div className={`editorial-visual editorial-${variant} ${className}`} aria-label={label} role="img">
-      <img src={imageSrc} alt={label} style={{ position: 'absolute', inset: 0, display: 'block', width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
+      <picture className="editorial-picture">
+        {mobileImageSrc && <source media="(max-width: 640px)" srcSet={mobileImageSrc} />}
+        <img className="editorial-image" src={imageSrc} alt={label} />
+      </picture>
     </div>
   );
 }
