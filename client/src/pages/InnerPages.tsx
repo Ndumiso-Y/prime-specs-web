@@ -3,6 +3,7 @@ import { ArrowRight, CircleHelp, Eye, Glasses, HeartHandshake, MapPin, MessageCi
 import { Link } from "wouter";
 import { Seo } from "@/components/Seo";
 import { ArrowLink, Container, ConversionBand, EditorialVisual, Eyebrow, FeatureList, LocationBlock, PageHero, Section } from "@/components/Primitives";
+import { HomeAboutTeamSection } from "@/components/HomeAboutTeamSection";
 import { LOCATIONS, SITE, whatsappUrl } from "@/lib/site";
 
 export function EyeCare() {
@@ -46,6 +47,14 @@ export function About() {
     <Section><Container className="story-grid"><EditorialVisual variant="community" label="Prime Specs team — authentic staff photography slot" /><div className="story-copy story-copy-light"><Eyebrow>The people behind Prime Specs</Eyebrow><h2>A real local team.</h2><p>Prime Specs’ team photography will live here once the approved image library is supplied. No names or biographies have been invented.</p><ArrowLink href="/contact">Contact the team</ArrowLink></div></Container></Section>
     <Section className="community-strip"><Container className="community-strip-grid"><HeartHandshake aria-hidden="true" /><div><Eyebrow inverse>Our community</Eyebrow><h2>Local presence, shown with restraint.</h2></div><p>Prime Specs has authentic community and outreach photography. A curated selection can replace the neutral visual slots without changing this layout.</p></Container></Section>
     <ConversionBand />
+  </>;
+}
+
+export function AboutTeam() {
+  return <>
+    <Seo title="Prime Specs Team | Rustenburg Optometrists & Staff" description="Meet the real people behind Prime Specs in Rustenburg. Professional eye care, eyewear and genuine local presence." path="/about-team" />
+    <HomeAboutTeamSection />
+    <ConversionBand title="Get to know the Prime Specs team." copy="Book an eye examination or ask about eyewear at either of our Rustenburg locations." />
   </>;
 }
 

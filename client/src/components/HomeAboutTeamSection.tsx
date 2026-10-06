@@ -45,6 +45,19 @@ export function HomeAboutTeamSection() {
     return () => clearInterval(interval);
   }, [isPlaying, nextSlide]);
 
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash === "#about-team" || hash === "#team") {
+      const timer = setTimeout(() => {
+        const el = document.getElementById("about-team");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   return (
     <Section id="about-team" className="home-about-team-section">
       <Container className="about-team-grid">

@@ -10,6 +10,7 @@ const EyeCare = lazy(() => import("@/pages/InnerPages").then((module) => ({ defa
 const Eyewear = lazy(() => import("@/pages/InnerPages").then((module) => ({ default: module.Eyewear })));
 const MedicalAids = lazy(() => import("@/pages/InnerPages").then((module) => ({ default: module.MedicalAids })));
 const About = lazy(() => import("@/pages/InnerPages").then((module) => ({ default: module.About })));
+const AboutTeam = lazy(() => import("@/pages/InnerPages").then((module) => ({ default: module.AboutTeam })));
 const Locations = lazy(() => import("@/pages/InnerPages").then((module) => ({ default: module.Locations })));
 const Contact = lazy(() => import("@/pages/InnerPages").then((module) => ({ default: module.Contact })));
 
@@ -21,6 +22,9 @@ function Router() {
       <Route path="/eyewear" component={Eyewear} />
       <Route path="/medical-aids" component={MedicalAids} />
       <Route path="/about" component={About} />
+      <Route path="/about-team" component={AboutTeam} />
+      <Route path="/team" component={AboutTeam} />
+      <Route path="/about/team" component={AboutTeam} />
       <Route path="/locations" component={Locations} />
       <Route path="/contact" component={Contact} />
       <Route path="/404" component={NotFound} />
