@@ -2,6 +2,7 @@ import { ArrowDown, ArrowRight, Eye, Glasses, HeartPulse, MapPin, MessageCircle,
 import { Link } from "wouter";
 import { Seo } from "@/components/Seo";
 import { ArrowLink, Container, ConversionBand, EditorialVisual, Eyebrow, LocationBlock, Section } from "@/components/Primitives";
+import { TeamGallery } from "@/components/TeamGallery";
 import { whatsappUrl } from "@/lib/site";
 
 const pathways = [
@@ -39,6 +40,18 @@ export default function Home() {
         </Container>
       </section>
 
+      <Section className="home-team-section">
+        <Container className="home-team-grid">
+          <div className="home-team-copy">
+            <Eyebrow>About Prime Specs</Eyebrow>
+            <h2>Local eye care,<br />with real people behind it.</h2>
+            <p>Prime Specs combines professional eye care, eyewear and a genuine Rustenburg presence — supported by a team focused on making every visit clear, approachable and useful.</p>
+            <ArrowLink href="/about">Get to know Prime Specs</ArrowLink>
+          </div>
+          <TeamGallery />
+        </Container>
+      </Section>
+
       <Section id="services" className="pathways-section">
         <Container>
           <div className="section-heading split-heading">
@@ -55,20 +68,6 @@ export default function Home() {
                 <ArrowRight aria-hidden="true" className="pathway-arrow" />
               </Link>
             ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="intro-section">
-        <Container className="intro-grid">
-          <div className="intro-statement">
-            <Eyebrow>Prime Specs</Eyebrow>
-            <h2>Clear care.<br />Considered eyewear.<br />Close to home.</h2>
-          </div>
-          <div className="intro-copy">
-            <p className="lede">Prime Specs brings professional eye care and an approachable eyewear experience to the Rustenburg community.</p>
-            <p>Visit us for an eye examination, prescription spectacles, frames or sunglasses. We’ll help you take the next practical step for your eyes and your everyday life.</p>
-            <ArrowLink href="/about">Get to know Prime Specs</ArrowLink>
           </div>
         </Container>
       </Section>
