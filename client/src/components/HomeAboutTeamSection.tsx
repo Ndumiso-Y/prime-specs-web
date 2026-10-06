@@ -23,16 +23,6 @@ const teamSlides = [
     alt: "Prime Specs staff team members in red uniforms",
     caption: "Customer Service & Reception",
   },
-  {
-    src: "/images/prime-specs/team/team-store-visit-1.jpg",
-    alt: "Prime Specs team in store with Rustenburg community visitors",
-    caption: "Local Community Connection",
-  },
-  {
-    src: "/images/prime-specs/team/team-store-visit-2.jpg",
-    alt: "Prime Specs staff members in store consultation area",
-    caption: "Personal & Approachable Care",
-  },
 ];
 
 export function HomeAboutTeamSection() {
