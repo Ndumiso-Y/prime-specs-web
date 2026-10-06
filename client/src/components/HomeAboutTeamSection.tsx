@@ -46,7 +46,7 @@ export function HomeAboutTeamSection() {
   }, [isPlaying, nextSlide]);
 
   return (
-    <Section className="home-about-team-section">
+    <Section id="about-team" className="home-about-team-section">
       <Container className="about-team-grid">
         <div className="about-team-copy reveal">
           <Eyebrow>ABOUT PRIME SPECS</Eyebrow>
