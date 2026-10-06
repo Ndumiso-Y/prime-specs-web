@@ -214,3 +214,36 @@
   .home-hero .button-text{width:100%;justify-content:center;background:rgba(255,255,255,.58)}
   .site-header-home .brand-logo{height:46px}
 }
+
+
+/* Homepage team introduction */
+.home-team-section{background:#fff;overflow:hidden}
+.home-team-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(3rem,7vw,7rem);align-items:center}
+.home-team-copy h2{font-size:clamp(2.7rem,5vw,5.5rem);line-height:.97;font-weight:600;margin:0}
+.home-team-copy>p{max-width:34rem;color:var(--quiet);line-height:1.75;margin:1.5rem 0 2rem}
+.team-gallery{min-width:0}
+.team-gallery-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1rem}
+.team-gallery-kicker{font-size:.68rem;text-transform:uppercase;letter-spacing:.14em;color:var(--quiet);font-weight:800}
+.team-gallery-controls{display:flex;gap:.55rem;flex:0 0 auto}
+.team-gallery-control{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;transition:transform 160ms var(--ease-out),background-color 160ms var(--ease-out)}
+.team-gallery-control:hover{transform:translateY(-1px);background:var(--paper)}
+.team-gallery-control svg{width:1rem}
+.team-gallery-track{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-right:16%;overscroll-behavior-inline:contain}
+.team-gallery-track::-webkit-scrollbar{display:none}
+.team-gallery-card{position:relative;flex:0 0 40%;aspect-ratio:.72;min-width:230px;margin:0;overflow:hidden;border-radius:1rem;scroll-snap-align:start;background:#e9ece8}
+.team-gallery-card-featured{flex-basis:54%}
+.team-gallery-card img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 18%;transition:transform 500ms var(--ease-out)}
+.team-gallery-card:hover img{transform:scale(1.015)}
+.team-gallery-card::after{content:"";position:absolute;inset:auto 0 0;height:24%;background:linear-gradient(transparent,rgba(8,60,46,.09));pointer-events:none}
+@media(max-width:900px){
+  .home-team-grid{grid-template-columns:1fr}
+  .team-gallery-card{flex-basis:42%}
+  .team-gallery-card-featured{flex-basis:54%}
+}
+@media(max-width:640px){
+  .home-team-section{overflow:hidden}
+  .team-gallery-controls{display:none}
+  .team-gallery-track{margin-right:-1rem;padding-right:22%;gap:.75rem}
+  .team-gallery-card,.team-gallery-card-featured{flex:0 0 min(78vw,300px);min-width:0;border-radius:.8rem}
+  .home-team-copy h2{font-size:clamp(2.5rem,13vw,4rem)}
+}
