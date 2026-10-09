@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
     <>
-      <Seo title="Prime Specs | Optometrist & Eyewear in Rustenburg" description="Professional eye examinations, prescription spectacles, frames and sunglasses from Prime Specs at two Rustenburg locations." />
+      <Seo title="Prime Specs | Optometrist & Eyewear in Rustenburg" description="Professional eye examinations, Prescription Safety Glasses, frames and sunglasses from Prime Specs at two Rustenburg locations." />
       <section className="home-hero">
         <picture className="home-hero-media">
           <source media="(max-width: 900px)" srcSet="/images/prime-specs/hero/hero-mobile.png" />
@@ -43,7 +43,7 @@ export default function Home() {
               <h1>Professional<br />eye care.<br /><span>Eyewear<br />that fits<br />your life.</span></h1>
             </div>
             <div className="hero-actions">
-              <p>Eye examinations, prescription spectacles, frames and sunglasses from Prime Specs in Rustenburg.</p>
+              <p>Eye examinations, Prescription Safety Glasses, frames and sunglasses from Prime Specs in Rustenburg.</p>
               <div className="button-row">
                 <a className="button button-primary" href={whatsappUrl()} target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" /> Book via WhatsApp</a>
                 <Link className="button button-text" href="/locations">Find a branch <ArrowRight aria-hidden="true" /></Link>
@@ -95,11 +95,11 @@ export default function Home() {
               <Eyebrow>Eyewear, considered</Eyebrow>
               <h2>Made for the way<br />you move through life.</h2>
             </div>
-            <p>Prescription spectacles, expressive frames and sunglasses—presented with space to see what suits you.</p>
+            <p>Prescription Safety Glasses, expressive frames and sunglasses—presented with space to see what suits you.</p>
           </div>
           <div className="eyewear-collage">
-            <EditorialVisual variant="eyewear" label="Prescription spectacles — authentic Prime Specs eyewear photography slot" className="collage-large" />
-            <div className="collage-note"><span>01</span><h3>Prescription<br />spectacles</h3><ArrowLink href="/eyewear">Explore eyewear</ArrowLink></div>
+            <EditorialVisual variant="eyewear" label="Prescription Safety Glasses — authentic Prime Specs eyewear photography slot" className="collage-large" />
+            <div className="collage-note"><span>01</span><h3>Prescription Safety<br />Glasses</h3><ArrowLink href="/eyewear">Explore eyewear</ArrowLink></div>
             <EditorialVisual variant="eyewear" label="Frames and sunglasses — authentic Prime Specs product photography slot" className="collage-small" />
           </div>
         </Container>
