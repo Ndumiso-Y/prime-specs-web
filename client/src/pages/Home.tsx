@@ -1,10 +1,11 @@
-import { ArrowDown, ArrowRight, Eye, Glasses, HeartPulse, MapPin, MessageCircle, ShieldCheck, Sun } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ArrowDown, ArrowRight, Eye, Glasses, HeartPulse, MapPin, MessageCircle, ShieldCheck, Sun, Play } from "lucide-react";
 import { Link } from "wouter";
 import { Seo } from "@/components/Seo";
 import { ArrowLink, Container, ConversionBand, EditorialVisual, Eyebrow, LocationBlock, Section } from "@/components/Primitives";
 import { HomeAboutTeamSection } from "@/components/HomeAboutTeamSection";
+import { CommunityVideoModal } from "@/components/CommunityVideoModal";
 import { whatsappUrl } from "@/lib/site";
-
 const pathways = [
   { number: "01", title: "Eye examinations", copy: "A professional, reassuring place to begin.", href: "/eye-care", icon: Eye },
   { number: "02", title: "Prescription eyewear", copy: "Everyday eyewear selected around your needs.", href: "/eyewear", icon: Glasses },
@@ -13,6 +14,19 @@ const pathways = [
 ];
 
 export default function Home() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
+  useEffect(() => {
+    const hasSeenVideo = sessionStorage.getItem("primeSpecsCommunityVideoSeen");
+    if (!hasSeenVideo) {
+      const timer = setTimeout(() => {
+        setIsVideoOpen(true);
+        sessionStorage.setItem("primeSpecsCommunityVideoSeen", "true");
+      }, 800);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   return (
     <>
       <Seo title="Prime Specs | Optometrist & Eyewear in Rustenburg" description="Professional eye examinations, prescription spectacles, frames and sunglasses from Prime Specs at two Rustenburg locations." />
@@ -111,7 +125,12 @@ export default function Home() {
             <Eyebrow>Here in Rustenburg</Eyebrow>
             <h2>Local eye care with a real community connection.</h2>
             <p>Prime Specs serves Rustenburg from two accessible locations and continues to build its story in the community around them.</p>
-            <ArrowLink href="/about">Our story</ArrowLink>
+            <div className="button-row" style={{ marginTop: '1.5rem', marginBottom: '2rem' }}>
+              <button onClick={() => setIsVideoOpen(true)} className="button button-yellow">
+                <Play aria-hidden="true" style={{ width: '1.1rem', fill: 'currentColor' }} /> Watch community outreach
+              </button>
+              <ArrowLink href="/about">Our story</ArrowLink>
+            </div>
           </div>
           <EditorialVisual variant="community" label="Prime Specs community — authentic outreach photography slot" />
         </Container>
@@ -132,6 +151,7 @@ export default function Home() {
       </Section>
 
       <ConversionBand />
+      <CommunityVideoModal isOpen={isVideoOpen} onClose={() => setIsVideoOpen(false)} />
     </>
   );
 }

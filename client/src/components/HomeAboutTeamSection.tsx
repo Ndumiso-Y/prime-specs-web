@@ -1,8 +1,18 @@
-import { useState, useEffect, useCallback } from "react";
-import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ArrowLink, Container, Eyebrow, Section } from "@/components/Primitives";
 
 const teamSlides = [
+  {
+    src: "/images/prime-specs/team/Thabo Director.jpg",
+    alt: "Thabo, Director at Prime Specs",
+    caption: "Thabo · Director",
+  },
+  {
+    src: "/images/prime-specs/team/Langa Lab Technician.jpg",
+    alt: "Langa, Lab Technician at Prime Specs",
+    caption: "Langa · Lab Technician",
+  },
   {
     src: "/images/prime-specs/team/team-group-yellow.jpg",
     alt: "Prime Specs staff team in yellow uniforms inside Rustenburg practice",
@@ -14,11 +24,6 @@ const teamSlides = [
     caption: "Optical & Eye Care Team",
   },
   {
-    src: "/images/prime-specs/team/team-group-seated.jpg",
-    alt: "Prime Specs team seated together in consultation area",
-    caption: "Consultation & Patient Support",
-  },
-  {
     src: "/images/prime-specs/team/team-group-red.jpg",
     alt: "Prime Specs staff team members in red uniforms",
     caption: "Customer Service & Reception",
@@ -26,24 +31,66 @@ const teamSlides = [
 ];
 
 export function HomeAboutTeamSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const scrollToSlide = useCallback((index: number) => {
+    const slide = slideRefs.current[index];
+    if (slide) {
+      slide.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+    }
+    setActiveIndex(index);
+  }, []);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % teamSlides.length);
-  }, []);
+    scrollToSlide((activeIndex + 1) % teamSlides.length);
+  }, [activeIndex, scrollToSlide]);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + teamSlides.length) % teamSlides.length);
-  }, []);
+    scrollToSlide((activeIndex - 1 + teamSlides.length) % teamSlides.length);
+  }, [activeIndex, scrollToSlide]);
 
+  // Handle manual scroll updating the activeIndex
+  const handleScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
+    if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+    
+    scrollTimeoutRef.current = setTimeout(() => {
+      const viewport = e.currentTarget;
+      let minDistance = Infinity;
+      let closestIndex = activeIndex;
+
+      slideRefs.current.forEach((slide, index) => {
+        if (!slide) return;
+        const distance = Math.abs(slide.offsetLeft - viewport.offsetLeft - viewport.scrollLeft);
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      if (closestIndex !== activeIndex) {
+        setActiveIndex(closestIndex);
+      }
+    }, 150);
+  }, [activeIndex]);
+
+  // Auto-advance
   useEffect(() => {
-    if (!isPlaying) return;
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mediaQuery.matches) return;
+
+    if (isPaused) return;
+
     const interval = setInterval(() => {
-      nextSlide();
-    }, 5500);
+      if (document.visibilityState === "visible") {
+        nextSlide();
+      }
+    }, 4500);
+
     return () => clearInterval(interval);
-  }, [isPlaying, nextSlide]);
+  }, [activeIndex, isPaused, nextSlide]);
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -77,19 +124,18 @@ export function HomeAboutTeamSection() {
           </div>
         </div>
 
-        <div
+        <div 
           className="about-team-carousel-container"
-          onMouseEnter={() => setIsPlaying(false)}
-          onMouseLeave={() => setIsPlaying(true)}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="team-carousel-viewport">
+          <div className="team-carousel-viewport" onScroll={handleScroll}>
             {teamSlides.map((slide, index) => {
-              const isActive = index === currentIndex;
               return (
                 <div
                   key={slide.src}
-                  className={`team-slide ${isActive ? "is-active" : ""}`}
-                  aria-hidden={!isActive}
+                  className="team-slide"
+                  ref={(el) => { slideRefs.current[index] = el; }}
                 >
                   <img
                     src={slide.src}
@@ -100,9 +146,6 @@ export function HomeAboutTeamSection() {
                   />
                   <div className="team-slide-overlay">
                     <span className="team-slide-caption">{slide.caption}</span>
-                    <span className="team-slide-counter">
-                      0{index + 1} / 0{teamSlides.length}
-                    </span>
                   </div>
                 </div>
               );
@@ -121,34 +164,12 @@ export function HomeAboutTeamSection() {
               </button>
               <button
                 type="button"
-                className="carousel-toggle-play"
-                onClick={() => setIsPlaying((prev) => !prev)}
-                aria-label={isPlaying ? "Pause slide presentation" : "Play slide presentation"}
-              >
-                {isPlaying ? <Pause aria-hidden="true" /> : <Play aria-hidden="true" />}
-              </button>
-              <button
-                type="button"
                 className="carousel-btn"
                 onClick={nextSlide}
                 aria-label="Next team photo"
               >
                 <ChevronRight aria-hidden="true" />
               </button>
-            </div>
-
-            <div className="carousel-indicators" role="tablist" aria-label="Team photo slides">
-              {teamSlides.map((slide, index) => (
-                <button
-                  key={slide.src}
-                  type="button"
-                  role="tab"
-                  aria-selected={index === currentIndex}
-                  aria-label={`Go to slide ${index + 1}: ${slide.caption}`}
-                  className={`carousel-dot ${index === currentIndex ? "is-active" : ""}`}
-                  onClick={() => setCurrentIndex(index)}
-                />
-              ))}
             </div>
           </div>
         </div>
