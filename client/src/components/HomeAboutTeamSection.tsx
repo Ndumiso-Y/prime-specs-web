@@ -36,10 +36,16 @@ export function HomeAboutTeamSection() {
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  const carouselViewportRef = useRef<HTMLDivElement>(null);
+
   const scrollToSlide = useCallback((index: number) => {
     const slide = slideRefs.current[index];
-    if (slide) {
-      slide.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+    if (slide && carouselViewportRef.current) {
+      const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      carouselViewportRef.current.scrollTo({
+        left: slide.offsetLeft,
+        behavior: isReducedMotion ? "auto" : "smooth"
+      });
     }
     setActiveIndex(index);
   }, []);
@@ -129,7 +135,7 @@ export function HomeAboutTeamSection() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="team-carousel-viewport" onScroll={handleScroll}>
+          <div className="team-carousel-viewport" ref={carouselViewportRef} onScroll={handleScroll}>
             {teamSlides.map((slide, index) => {
               return (
                 <div
