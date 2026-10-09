@@ -39,6 +39,9 @@ export function HomeAboutTeamSection() {
   const carouselViewportRef = useRef<HTMLDivElement>(null);
 
   const scrollToSlide = useCallback((index: number) => {
+    setActiveIndex(index);
+    if (window.matchMedia("(max-width: 768px)").matches) return;
+
     const slide = slideRefs.current[index];
     if (slide && carouselViewportRef.current) {
       const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -47,7 +50,6 @@ export function HomeAboutTeamSection() {
         behavior: isReducedMotion ? "auto" : "smooth"
       });
     }
-    setActiveIndex(index);
   }, []);
 
   const nextSlide = useCallback(() => {
@@ -98,18 +100,7 @@ export function HomeAboutTeamSection() {
     return () => clearInterval(interval);
   }, [activeIndex, isPaused, nextSlide]);
 
-  useEffect(() => {
-    const hash = window.location.hash;
-    if (hash === "#about-team" || hash === "#team") {
-      const timer = setTimeout(() => {
-        const el = document.getElementById("about-team");
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 150);
-      return () => clearTimeout(timer);
-    }
-  }, []);
+
 
   return (
     <Section id="about-team" className="home-about-team-section">
@@ -140,7 +131,7 @@ export function HomeAboutTeamSection() {
               return (
                 <div
                   key={slide.src}
-                  className="team-slide"
+                  className={`team-slide ${index === activeIndex ? "is-active" : ""}`}
                   ref={(el) => { slideRefs.current[index] = el; }}
                 >
                   <img
