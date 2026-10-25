@@ -79,10 +79,12 @@ Approved photography and the official transparent logo now live under `client/pu
 - Primary telephone: `014 597 3537`
 - WhatsApp: `071 990 2234`
 - Primary location: Corner Thabo Mbeki & Oliver Tambo Drive, Rustenburg, 2999
+- Primary branch email: `rustenburg@primespecs.co.za`
 - Kopano Mall location: Shop No. 06, Fatima Bhayat Street, Rustenburg
 - Kopano Mall practice number: `7030916`
 - Kopano Mall telephone: `014 065 0880`
-- Confirmed services: eye examinations, prescription spectacles, frames and sunglasses
+- Kopano Mall email: `kopano@primespecs.co.za`
+- Confirmed services: eye examinations, Prescription Safety Glasses, frames and sunglasses
 - Medical-aid wording: Prime Specs accepts most medical aids; visitors are asked to confirm their scheme and available optical benefits before visiting
 
 ## Outstanding client confirmations

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ArrowUpRight, Check, MapPin, MessageCircle, Phone } from "lucide-react";
+import { ArrowUpRight, Check, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Link } from "wouter";
 import { LOCATIONS, whatsappUrl } from "@/lib/site";
 
@@ -148,6 +148,9 @@ export function LocationBlock({ index }: { index: number }) {
       <div className="location-actions">
         <a href={location.phoneHref}>
           <Phone aria-hidden="true" /> {location.phone}
+        </a>
+        <a href={location.emailHref}>
+          <Mail aria-hidden="true" /> {location.email}
         </a>
         <a href={location.directions} target="_blank" rel="noreferrer">
           <MapPin aria-hidden="true" /> Directions

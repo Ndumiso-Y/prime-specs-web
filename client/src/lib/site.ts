@@ -29,6 +29,8 @@ export const LOCATIONS = [
     ],
     phone: "014 597 3537",
     phoneHref: "tel:+27145973537",
+    email: "rustenburg@primespecs.co.za",
+    emailHref: "mailto:rustenburg@primespecs.co.za",
     directions:
       "https://www.google.com/maps/search/?api=1&query=Prime+Specs+Corner+Thabo+Mbeki+and+Oliver+Tambo+Drive+Rustenburg+2999",
   },
@@ -42,6 +44,8 @@ export const LOCATIONS = [
     ],
     phone: "014 065 0880",
     phoneHref: "tel:+27140650880",
+    email: "kopano@primespecs.co.za",
+    emailHref: "mailto:kopano@primespecs.co.za",
     directions:
       "https://www.google.com/maps/search/?api=1&query=Prime+Specs+Kopano+Mall+Shop+6+Fatima+Bhayat+Street+Rustenburg",
     practiceNumber: "7030916",

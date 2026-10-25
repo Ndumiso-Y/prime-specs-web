@@ -1,7 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Glasses, MapPin, Menu, MessageCircle, Phone, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
-import { NAV_ITEMS, SITE, whatsappUrl } from "@/lib/site";
+import { LOCATIONS, NAV_ITEMS, SITE, whatsappUrl } from "@/lib/site";
 
 function BrandMark() {
   return (
@@ -96,6 +96,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <p className="footer-label">Contact</p>
             <a href={SITE.phoneHref}>{SITE.phone}</a>
             <a href={whatsappUrl()} target="_blank" rel="noreferrer">WhatsApp {SITE.whatsapp}</a>
+            <a href={LOCATIONS[0].emailHref}>{LOCATIONS[0].email}</a>
+            <a href={LOCATIONS[1].emailHref}>{LOCATIONS[1].email}</a>
             <a href={SITE.facebook} target="_blank" rel="noreferrer">Facebook</a>
           </div>
         </div>
