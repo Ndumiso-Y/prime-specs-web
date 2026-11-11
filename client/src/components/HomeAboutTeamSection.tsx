@@ -9,9 +9,9 @@ const teamSlides = [
     caption: "Thabo · Director",
   },
   {
-    src: "/images/prime-specs/team/Langa Lab Technician.jpg",
-    alt: "Langa, Lab Technician at Prime Specs",
-    caption: "Langa · Lab Technician",
+    src: "/images/prime-specs/team/Langa Optician Operating Officer.jpg",
+    alt: "Langa, Optician and Operating Officer at Prime Specs",
+    caption: "Langa · Optician & Operating Officer",
   },
   {
     src: "/images/prime-specs/team/team-group-yellow.jpg",
