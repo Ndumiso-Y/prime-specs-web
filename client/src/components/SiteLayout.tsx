@@ -104,6 +104,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         <div className="footer-bottom container">
           <span>© {new Date().getFullYear()} Prime Specs</span>
           <span>Rustenburg, North West, South Africa</span>
+          <span className="footer-credit">Designed by Embark Digitals</span>
         </div>
       </footer>
 

@@ -676,3 +676,7 @@
 @keyframes v2-logo-scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
 @media(prefers-reduced-motion:reduce){ .v2-logo-track { animation:none; } }
 @media(max-width:640px){ .v2-card-media-logos { border-bottom:0; border-right:1px solid var(--line); } .v2-logo-track span { width:118px; height:80px; padding:0 .8rem; } .v2-card-media .v2-logo-track img { max-height:50px; } .v2-logo-track { animation-duration:20s; } }
+
+/* footer credit */
+.footer-bottom { gap:.5rem 2rem; flex-wrap:wrap; }
+.footer-credit { color:rgba(255,255,255,.62); }
