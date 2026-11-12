@@ -1,12 +1,12 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { Glasses, MapPin, Menu, MessageCircle, Phone, X } from "lucide-react";
+import { CalendarCheck, MapPin, Menu, MessageCircle, Phone, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { LOCATIONS, NAV_ITEMS, SITE, whatsappUrl } from "@/lib/site";
 
 function BrandMark() {
   return (
     <span className="brand-mark" data-logo-fallback="false">
-      <img src="/images/brand/logo-transparent.png" alt="Prime Specs" className="brand-logo" />
+      <img src="/images/brand/logo-v2.png" alt="Prime Specs" className="brand-logo" />
     </span>
   );
 }
@@ -45,17 +45,17 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     <div className={`site-shell ${isHome ? "home-route" : ""}`}>
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className={`site-header ${isHome ? "site-header-home" : ""} ${scrolled ? "is-scrolled" : ""} ${open ? "is-menu-open" : ""}`}>
-        <div className="header-inner">
+        <div className="header-inner container">
           <Link href="/" className="brand-link" aria-label="Prime Specs home"><BrandMark /></Link>
           <nav className="desktop-nav" aria-label="Primary navigation">
-            {NAV_ITEMS.map((item) => (
+            {NAV_ITEMS.filter((item) => item.href !== "/contact").map((item) => (
               <Link key={item.href} href={item.href} className={isActive(item.href) ? "active" : ""}>
                 {item.label}
               </Link>
             ))}
           </nav>
           <a className="header-cta" href={whatsappUrl()} target="_blank" rel="noreferrer">
-            <MessageCircle aria-hidden="true" /> WhatsApp us
+            <CalendarCheck aria-hidden="true" /> Book Appointment
           </a>
           <button className="menu-toggle" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Close menu" : "Open menu"}>
             {open ? <X /> : <Menu />}
@@ -89,7 +89,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           </nav>
           <div>
             <p className="footer-label">Visit</p>
-            <Link href="/locations">Thabo Mbeki & Oliver Tambo</Link>
+            <Link href="/locations">CBD · Thabo Mbeki & Oliver Tambo</Link>
             <Link href="/locations">Kopano Mall, Shop 06</Link>
           </div>
           <div>

@@ -21,6 +21,8 @@ export const NAV_ITEMS = [
 export const LOCATIONS = [
   {
     name: "Prime Specs",
+    displayName: "Prime Specs — CBD",
+    image: "/images/prime-specs/locations/main-exterior.jpg",
     shortName: "Thabo Mbeki",
     addressLines: [
       "Corner Thabo Mbeki & Oliver Tambo Drive",
@@ -36,6 +38,8 @@ export const LOCATIONS = [
   },
   {
     name: "Prime Specs Kopano Mall",
+    displayName: "Prime Specs — Kopano Mall",
+    image: "/images/prime-specs/locations/kopano-exterior.jpg",
     shortName: "Kopano Mall",
     addressLines: [
       "Shop No. 06, Kopano Mall",
