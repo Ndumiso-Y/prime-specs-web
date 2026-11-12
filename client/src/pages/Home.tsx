@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { ArrowRight, Eye, Glasses, HeartHandshake, Mail, MapPin, MessageCircle, Phone, Play, ShieldCheck, ShieldPlus, Sun, Users } from "lucide-react";
+import { ArrowRight, Eye, Glasses, HeartHandshake, Mail, MapPin, MessageCircle, Phone, Play, ShieldCheck, Sun, Users } from "lucide-react";
 import { Link } from "wouter";
 import { Seo } from "@/components/Seo";
 import { ArrowLink, BranchCards, Container, ConversionBand, Eyebrow, MedicalAidLogos, Section } from "@/components/Primitives";
 import { CommunityVideoModal } from "@/components/CommunityVideoModal";
-import { LOCATIONS, whatsappUrl } from "@/lib/site";
+import { MEDICAL_AIDS, whatsappUrl } from "@/lib/site";
 
 const proofPoints = [
   { icon: MapPin, title: "2 Rustenburg locations", copy: "CBD and Kopano Mall" },
@@ -141,11 +141,17 @@ export default function Home() {
           <div className="v2-grid">
             {services.map(({ icon: Icon, title, copy, cta, href, image, alt, position }) => (
               <Link key={title} href={href} className="v2-card">
-                <div className={`v2-card-media ${image ? "" : "v2-card-media-plain"}`}>
+                <div className={`v2-card-media ${image ? "" : "v2-card-media-logos"}`}>
                   {image ? (
                     <img src={image} alt={alt} loading="lazy" decoding="async" style={{ objectPosition: position }} />
                   ) : (
-                    <ShieldPlus aria-hidden="true" />
+                    <div className="v2-logo-track" aria-label="Medical aids accepted: Fedhealth, Bonitas, Bestmed, BCIMA, GEMS, Sisonke Health and Thebemed">
+                      {[...MEDICAL_AIDS, ...MEDICAL_AIDS].map((aid, index) => (
+                        <span key={`${aid.name}-${index}`} aria-hidden="true">
+                          <img src={aid.logo} alt="" decoding="async" />
+                        </span>
+                      ))}
+                    </div>
                   )}
                 </div>
                 <div className="v2-card-body">

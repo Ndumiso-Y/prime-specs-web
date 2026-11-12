@@ -665,3 +665,14 @@
 .v2-logos img[src$="fedhealth.svg"], .v2-logos img[src$="bestmed.svg"] { width:90%; max-height:none !important; }
 @media(max-width:1100px){ .v2-logos-rail { grid-template-columns:repeat(4,1fr); } }
 @media(max-width:640px){ .v2-logos-rail { grid-template-columns:1fr 1fr; } .v2-logos-rail li { height:76px; } }
+
+/* Medical Aids card: continuously moving logo carousel */
+.v2-card-media-logos { display:flex; align-items:center; background:#fff; border-bottom:1px solid var(--line); -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); }
+.v2-logo-track { display:flex; align-items:center; width:max-content; animation:v2-logo-scroll 26s linear infinite; }
+.v2-logo-track span { flex:none; display:grid; place-items:center; width:190px; height:110px; padding:0 1.4rem; }
+.v2-card-media .v2-logo-track img { width:auto; height:auto; max-width:100%; max-height:74px; object-fit:contain; transition:none; }
+.v2-card:hover .v2-card-media .v2-logo-track img { transform:none; }
+.v2-card:hover .v2-logo-track { animation-play-state:paused; }
+@keyframes v2-logo-scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+@media(prefers-reduced-motion:reduce){ .v2-logo-track { animation:none; } }
+@media(max-width:640px){ .v2-card-media-logos { border-bottom:0; border-right:1px solid var(--line); } .v2-logo-track span { width:118px; height:80px; padding:0 .8rem; } .v2-card-media .v2-logo-track img { max-height:50px; } .v2-logo-track { animation-duration:20s; } }
