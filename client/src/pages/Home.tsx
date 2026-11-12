@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { ArrowRight, Eye, Glasses, HeartHandshake, Mail, MapPin, MessageCircle, Phone, Play, ShieldCheck, ShieldPlus, Sun, Users } from "lucide-react";
 import { Link } from "wouter";
 import { Seo } from "@/components/Seo";
-import { ArrowLink, Container, ConversionBand, Eyebrow, Section } from "@/components/Primitives";
+import { ArrowLink, BranchCards, Container, ConversionBand, Eyebrow, MedicalAidLogos, Section } from "@/components/Primitives";
 import { CommunityVideoModal } from "@/components/CommunityVideoModal";
 import { LOCATIONS, whatsappUrl } from "@/lib/site";
 
@@ -19,14 +19,14 @@ const services = [
     copy: "A professional, reassuring place to start looking after your eyes.",
     cta: "Learn more",
     href: "/eye-care",
-    image: "/images/prime-specs/eye-care/exam-room.jpg",
+    image: "/images/prime-specs/eye-care/exam-room.webp",
     alt: "Eye examination room at Prime Specs",
     position: "center 40%",
   },
   {
     icon: Glasses,
-    title: "Prescription Eyewear",
-    copy: "Everyday glasses made around your prescription and how you use them.",
+    title: "Prescription Safety Glasses",
+    copy: "Protective eyewear made to your prescription, for work and everyday use.",
     cta: "Explore eyewear",
     href: "/eyewear",
     image: "/images/prime-specs/eyewear/product-set-card.webp",
@@ -39,7 +39,7 @@ const services = [
     copy: "Styles for work, weekends and everything between.",
     cta: "Explore styles",
     href: "/eyewear",
-    image: "/images/prime-specs/eyewear/display-wall.jpg",
+    image: "/images/prime-specs/eyewear/display-wall.webp",
     alt: "Frame display wall inside Prime Specs",
     position: "center 35%",
   },
@@ -59,7 +59,7 @@ const services = [
     copy: "Real Rustenburg people who put your vision first.",
     cta: "Meet the team",
     href: "/about",
-    image: "/images/prime-specs/team/team-group-yellow.jpg",
+    image: "/images/prime-specs/team/team-group-yellow.webp",
     alt: "Prime Specs team in yellow uniforms inside the practice",
     position: "center 36%",
   },
@@ -69,13 +69,12 @@ const services = [
     copy: "Visit us in the Rustenburg CBD or at Kopano Mall.",
     cta: "View branches",
     href: "/locations",
-    image: "/images/prime-specs/locations/main-exterior.jpg",
+    image: "/images/prime-specs/locations/main-exterior.webp",
     alt: "Prime Specs storefront in the Rustenburg CBD",
     position: "62% 58%",
   },
 ];
 
-const schemes = ["Fedhealth", "Bonitas", "Bestmed", "BCIMA", "GEMS", "Sisonke Health", "Thebemed"];
 
 export default function Home() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -93,11 +92,11 @@ export default function Home() {
 
   return (
     <>
-      <Seo title="Prime Specs | Optometrist & Eyewear in Rustenburg" description="Professional eye examinations, prescription eyewear, frames and sunglasses from Prime Specs at two Rustenburg locations." />
+      <Seo title="Prime Specs | Optometrist & Eyewear in Rustenburg" description="Professional eye examinations, Prescription Safety Glasses, frames and sunglasses from Prime Specs at two Rustenburg locations." />
       <section className="home-hero v2-hero">
         <picture className="home-hero-media">
-          <source media="(max-width: 900px)" srcSet="/images/prime-specs/hero/hero-mobile.png" />
-          <img src="/images/prime-specs/hero/hero.png" alt="Woman wearing bold black eyeglasses" fetchPriority="high" decoding="async" />
+          <source media="(max-width: 900px)" srcSet="/images/prime-specs/hero/hero-mobile.webp" />
+          <img src="/images/prime-specs/hero/hero.webp" alt="Woman wearing bold black eyeglasses" fetchPriority="high" decoding="async" />
         </picture>
         <div className="home-hero-overlay" aria-hidden="true" />
         <Container className="home-hero-inner">
@@ -165,7 +164,7 @@ export default function Home() {
         <Container>
           <div className="v2-community">
             <button type="button" className="v2-community-media" onClick={() => setIsVideoOpen(true)} aria-label="Watch our community work">
-              <img src="/images/prime-specs/community/outreach.jpg" alt="Prime Specs community eye screening outreach" loading="lazy" decoding="async" />
+              <img src="/images/prime-specs/community/outreach.webp" alt="Prime Specs community eye screening outreach" loading="lazy" decoding="async" />
               <span className="v2-play"><Play aria-hidden="true" /></span>
             </button>
             <div className="v2-community-copy">
@@ -191,9 +190,7 @@ export default function Home() {
             <p>Contact Prime Specs to confirm your scheme and available optical benefits before your visit.</p>
             <ArrowLink href="/medical-aids">Check medical aids</ArrowLink>
           </div>
-          <ul className="v2-schemes" aria-label="Medical aid schemes">
-            {schemes.map((scheme) => <li key={scheme}>{scheme}</li>)}
-          </ul>
+          <MedicalAidLogos className="v2-logos-rail" />
         </Container>
       </Section>
 
@@ -206,27 +203,7 @@ export default function Home() {
             </div>
             <ArrowLink href="/locations">View branch details</ArrowLink>
           </div>
-          <div className="v2-branch-grid">
-            {LOCATIONS.map((location) => (
-              <article key={location.displayName} className="v2-branch">
-                <div className="v2-branch-media">
-                  <img src={location.image} alt={`${location.displayName} storefront`} loading="lazy" decoding="async" />
-                </div>
-                <div className="v2-branch-body">
-                  <h3>{location.displayName}</h3>
-                  <address>
-                    {location.addressLines.slice(0, 2).map((line) => <span key={line}>{line}</span>)}
-                  </address>
-                  {"practiceNumber" in location && <p className="practice-number">Practice no. {location.practiceNumber}</p>}
-                  <div className="v2-branch-contact">
-                    <a href={location.phoneHref}><Phone aria-hidden="true" /> {location.phone}</a>
-                    <a href={location.emailHref}><Mail aria-hidden="true" /> {location.email}</a>
-                  </div>
-                  <a className="button button-outline" href={location.directions} target="_blank" rel="noreferrer"><MapPin aria-hidden="true" /> Directions</a>
-                </div>
-              </article>
-            ))}
-          </div>
+          <BranchCards />
         </Container>
       </Section>
 

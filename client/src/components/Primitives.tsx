@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { ArrowUpRight, Check, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Link } from "wouter";
-import { LOCATIONS, whatsappUrl } from "@/lib/site";
+import { LOCATIONS, MEDICAL_AIDS, whatsappUrl } from "@/lib/site";
 
 export function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`container ${className}`}>{children}</div>;
@@ -214,5 +214,43 @@ export function PageHeroV2({
         </div>
       </Container>
     </section>
+  );
+}
+
+export function BranchCards() {
+  return (
+    <div className="v2-branch-grid">
+      {LOCATIONS.map((location) => (
+        <article key={location.displayName} className="v2-branch">
+          <div className="v2-branch-media">
+            <img src={location.image} alt={`${location.displayName} storefront`} loading="lazy" decoding="async" />
+          </div>
+          <div className="v2-branch-body">
+            <h3>{location.displayName}</h3>
+            <address>
+              {location.addressLines.slice(0, 2).map((line) => <span key={line}>{line}</span>)}
+            </address>
+            {"practiceNumber" in location && <p className="practice-number">Practice no. {location.practiceNumber}</p>}
+            <div className="v2-branch-contact">
+              <a href={location.phoneHref}><Phone aria-hidden="true" /> {location.phone}</a>
+              <a href={location.emailHref}><Mail aria-hidden="true" /> {location.email}</a>
+            </div>
+            <a className="button button-outline" href={location.directions} target="_blank" rel="noreferrer"><MapPin aria-hidden="true" /> Directions</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+export function MedicalAidLogos({ className = "" }: { className?: string }) {
+  return (
+    <ul className={`v2-logos ${className}`} aria-label="Medical aid schemes">
+      {MEDICAL_AIDS.map((aid) => (
+        <li key={aid.name}>
+          <img src={aid.logo} alt={aid.name} loading="lazy" decoding="async" style={{ maxHeight: aid.height }} />
+        </li>
+      ))}
+    </ul>
   );
 }

@@ -4,11 +4,11 @@ import { createPortal } from "react-dom";
 
 const videos = [
   {
-    src: "/videos/prime-specs/tlhage-primary-school.mp4",
+    src: "/videos/prime-specs/tlhage-primary-school-web.mp4",
     title: "Tlhage Primary School",
   },
   {
-    src: "/videos/prime-specs/140-police-students-screened.mp4",
+    src: "/videos/prime-specs/140-police-students-screened-web.mp4",
     title: "140 Police Students Screened",
   }
 ];
@@ -98,6 +98,7 @@ export function CommunityVideoModal({ isOpen, onClose }: { isOpen: boolean; onCl
             src={currentVideo.src}
             className="video-element"
             playsInline
+            preload="metadata"
             onEnded={nextVideo}
           />
           <div className="video-modal-title-bar">

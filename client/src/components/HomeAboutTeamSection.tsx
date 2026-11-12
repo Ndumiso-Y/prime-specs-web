@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ArrowLink, Container, Eyebrow, Section } from "@/components/Primitives";
 
@@ -30,7 +30,19 @@ const teamSlides = [
   },
 ];
 
-export function HomeAboutTeamSection() {
+export function HomeAboutTeamSection({
+  eyebrow = "ABOUT PRIME SPECS",
+  title = <>Local eye care,<br />with real people behind it.</>,
+  copy = "Prime Specs combines professional eye care, eyewear and a genuine Rustenburg presence — supported by a team focused on making every visit clear, approachable and useful.",
+  ctaHref = "/about",
+  ctaLabel = "Get to know Prime Specs",
+}: {
+  eyebrow?: string;
+  title?: ReactNode;
+  copy?: string;
+  ctaHref?: string;
+  ctaLabel?: string;
+} = {}) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -106,18 +118,11 @@ export function HomeAboutTeamSection() {
     <Section id="about-team" className="home-about-team-section">
       <Container className="about-team-grid">
         <div className="about-team-copy reveal">
-          <Eyebrow>ABOUT PRIME SPECS</Eyebrow>
-          <h2>
-            Local eye care,<br />
-            with real people behind it.
-          </h2>
-          <p className="lede">
-            Prime Specs combines professional eye care, eyewear and a genuine
-            Rustenburg presence — supported by a team focused on making every
-            visit clear, approachable and useful.
-          </p>
+          <Eyebrow>{eyebrow}</Eyebrow>
+          <h2>{title}</h2>
+          <p className="lede">{copy}</p>
           <div className="about-team-cta">
-            <ArrowLink href="/about">Get to know Prime Specs</ArrowLink>
+            <ArrowLink href={ctaHref}>{ctaLabel}</ArrowLink>
           </div>
         </div>
 
@@ -141,9 +146,6 @@ export function HomeAboutTeamSection() {
                     loading={index === 0 ? "eager" : "lazy"}
                     decoding="async"
                   />
-                  <div className="team-slide-overlay">
-                    <span className="team-slide-caption">{slide.caption}</span>
-                  </div>
                 </div>
               );
             })}
@@ -168,6 +170,7 @@ export function HomeAboutTeamSection() {
                 <ChevronRight aria-hidden="true" />
               </button>
             </div>
+            <p className="team-caption" aria-live="polite">{teamSlides[activeIndex].caption}</p>
           </div>
         </div>
       </Container>

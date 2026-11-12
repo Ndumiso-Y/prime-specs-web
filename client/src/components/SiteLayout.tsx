@@ -6,7 +6,7 @@ import { LOCATIONS, NAV_ITEMS, SITE, whatsappUrl } from "@/lib/site";
 function BrandMark() {
   return (
     <span className="brand-mark" data-logo-fallback="false">
-      <img src="/images/brand/logo-v2.png" alt="Prime Specs" className="brand-logo" />
+      <img src="/images/brand/logo-v2.webp" alt="Prime Specs" className="brand-logo" />
     </span>
   );
 }

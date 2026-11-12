@@ -22,8 +22,9 @@ export const LOCATIONS = [
   {
     name: "Prime Specs",
     displayName: "Prime Specs — CBD",
-    image: "/images/prime-specs/locations/main-exterior.jpg",
-    shortName: "Thabo Mbeki",
+    image: "/images/prime-specs/locations/main-exterior.webp",
+    shortName: "Rustenburg CBD",
+    mapEmbed: "https://www.google.com/maps?q=Corner+Thabo+Mbeki+and+Oliver+Tambo+Drive+Rustenburg+2999&output=embed",
     addressLines: [
       "Corner Thabo Mbeki & Oliver Tambo Drive",
       "Rustenburg, 2999",
@@ -39,8 +40,9 @@ export const LOCATIONS = [
   {
     name: "Prime Specs Kopano Mall",
     displayName: "Prime Specs — Kopano Mall",
-    image: "/images/prime-specs/locations/kopano-exterior.jpg",
+    image: "/images/prime-specs/locations/kopano-exterior.webp",
     shortName: "Kopano Mall",
+    mapEmbed: "https://www.google.com/maps?q=Kopano+Mall+Fatima+Bhayat+Street+Rustenburg&output=embed",
     addressLines: [
       "Shop No. 06, Kopano Mall",
       "Fatima Bhayat Street, Rustenburg",
@@ -62,3 +64,13 @@ export const defaultWhatsappMessage =
 export function whatsappUrl(message = defaultWhatsappMessage) {
   return `${SITE.whatsappBase}?text=${encodeURIComponent(message)}`;
 }
+
+export const MEDICAL_AIDS = [
+  { name: "Fedhealth", logo: "/images/medical-aids/fedhealth.svg", height: 30 },
+  { name: "Bonitas", logo: "/images/medical-aids/bonitas.png", height: 62 },
+  { name: "Bestmed", logo: "/images/medical-aids/bestmed.svg", height: 30 },
+  { name: "BCIMA Medical Aid", logo: "/images/medical-aids/bcima.png", height: 76 },
+  { name: "GEMS", logo: "/images/medical-aids/gems.png", height: 62 },
+  { name: "Sisonke Health Medical Scheme", logo: "/images/medical-aids/sisonke.png", height: 64 },
+  { name: "Thebemed", logo: "/images/medical-aids/thebemed.svg", height: 62 },
+] as const;

@@ -550,3 +550,118 @@
   .v2-gallery > div { min-height:170px; }
   .v2-split-copy { padding:1.75rem 1.35rem 2rem; }
 }
+
+/* ===== V2: Medical Aids and About ===== */
+.v2-compact-hero { padding:clamp(2.5rem,5vw,4.5rem) 0 clamp(3rem,5.5vw,5rem); }
+.v2-compact-hero h1 { font-size:clamp(2.6rem,4.8vw,4.5rem); line-height:.98; letter-spacing:-.05em; font-weight:650; margin:0; max-width:14em; }
+.v2-compact-hero h1 span { color:var(--prime-green); }
+.v2-compact-hero .lede { font-size:clamp(1.05rem,1.35vw,1.25rem); line-height:1.6; max-width:36rem; margin:1.5rem 0 0; }
+.v2-scheme-grid { list-style:none; margin:clamp(2.25rem,4vw,3.5rem) 0 0; padding:0; display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+.v2-scheme-grid li { display:flex; align-items:center; gap:.9rem; min-height:96px; padding:1.25rem 1.4rem; background:#fff; border:1px solid var(--line); border-radius:var(--radius-card); font-family:var(--font-display); font-weight:650; font-size:1.2rem; letter-spacing:-.02em; color:var(--prime-green-deep); }
+.v2-scheme-grid svg { width:1.5rem; height:1.5rem; color:var(--prime-green); flex:none; stroke-width:1.7; }
+.v2-split-plain { background:var(--paper); }
+.v2-body { color:var(--quiet); line-height:1.75; margin:1.25rem 0 0; }
+
+.v2-values { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(1.5rem,4vw,3.5rem); border-top:1px solid var(--line); padding-top:2rem; }
+.v2-values svg { width:1.9rem; height:1.9rem; color:var(--prime-green); stroke-width:1.6; margin-bottom:1.1rem; }
+.v2-values h3 { font-size:1.5rem; font-weight:650; line-height:1.1; margin:0 0 .55rem; }
+.v2-values p { color:var(--quiet); line-height:1.65; margin:0; }
+
+.v2-community-standalone { padding-top:clamp(3.5rem,7vw,6.5rem); }
+
+/* Team carousel: caption sits beside the arrows instead of over the photo */
+.team-carousel-controls { gap:1.25rem; }
+.team-caption { margin:0; font-family:var(--font-display); font-weight:650; font-size:1.1rem; letter-spacing:-.02em; color:var(--ink); }
+.home-about-team-section { padding-block:clamp(3.5rem,7vw,6.5rem); }
+.about-team-copy h2 { font-size:clamp(2rem,3.6vw,3.5rem); line-height:1.02; }
+.team-slide { height:clamp(380px,56vh,580px); }
+
+@media(max-width:1100px){
+  .v2-scheme-grid { grid-template-columns:repeat(3,1fr); }
+}
+@media(max-width:768px){
+  .team-slide { height:clamp(360px,58svh,520px); }
+}
+@media(max-width:640px){
+  .v2-compact-hero { padding-top:1.75rem; }
+  .v2-compact-hero h1 { font-size:clamp(2.4rem,11vw,3rem); }
+  .v2-scheme-grid { grid-template-columns:1fr 1fr; gap:.7rem; }
+  .v2-scheme-grid li { min-height:76px; padding:.9rem 1rem; font-size:1rem; gap:.6rem; }
+  .v2-scheme-grid svg { width:1.2rem; height:1.2rem; }
+  .v2-values { grid-template-columns:1fr; gap:1.75rem; }
+  .v2-community-standalone { padding-top:3.5rem; }
+  .team-caption { font-size:1rem; }
+}
+
+/* ===== V2: medical aid logos, Locations, Contact ===== */
+.v2-logos { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+.v2-logos li { display:grid; place-items:center; height:104px; padding:1rem 1.25rem; background:#fff; border:1px solid var(--line); border-radius:var(--radius-card); }
+.v2-logos img { display:block; max-width:100%; width:auto; height:auto; object-fit:contain; }
+.v2-logos-rail { grid-template-columns:repeat(4,1fr); gap:.5rem 1.5rem; }
+.v2-logos-rail li { border:0; background:transparent; height:84px; padding:.5rem; border-radius:0; }
+.v2-logos-page { margin-top:clamp(2.25rem,4vw,3.5rem); }
+
+.v2-branch-list { display:grid; gap:1.5rem; }
+.v2-branch-detail { display:grid; grid-template-columns:1fr 1fr; background:#fff; border:1px solid var(--line); border-radius:var(--radius-media); overflow:hidden; }
+.v2-branch-detail-media { position:relative; min-height:380px; background:var(--prime-green-soft); }
+.v2-branch-detail-media img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.v2-branch-detail:first-child .v2-branch-detail-media img { object-position:62% 55%; }
+.v2-branch-detail:last-child .v2-branch-detail-media img { object-position:center 20%; }
+.v2-branch-detail-body { padding:clamp(1.75rem,3.5vw,3.25rem); display:flex; flex-direction:column; align-items:flex-start; justify-content:center; }
+.v2-branch-detail-body h2 { font-size:clamp(1.9rem,3vw,2.9rem); line-height:1.03; font-weight:600; margin:0 0 1rem; }
+.v2-branch-detail-body address { font-style:normal; color:var(--quiet); line-height:1.65; }
+.v2-branch-detail-body address span { display:block; }
+.v2-branch-detail-body .practice-number { margin:.7rem 0 0; }
+.v2-branch-detail-body .v2-branch-contact { margin:1.25rem 0 0; }
+.v2-branch-detail-body .button-row { margin-top:1.6rem; }
+.v2-branch-map { grid-column:1/-1; height:300px; border-top:1px solid var(--line); background:var(--prime-green-soft); }
+.v2-branch-map iframe { display:block; width:100%; height:100%; border:0; }
+
+.v2-contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,5rem); align-items:start; }
+.v2-contact-quick { display:grid; gap:.75rem; margin-top:2rem; max-width:24rem; }
+.v2-contact-quick a { display:flex; align-items:center; gap:1rem; padding:1rem 1.2rem; background:#fff; border:1px solid var(--line); border-radius:16px; font-family:var(--font-display); font-weight:650; font-size:1.2rem; }
+.v2-contact-quick a:hover { border-color:var(--prime-green); }
+.v2-contact-quick svg { width:1.25rem; color:var(--prime-green); flex:none; }
+.v2-contact-quick small { display:block; font-family:var(--font-sans); font-weight:600; font-size:.74rem; color:var(--quiet); letter-spacing:0; }
+.v2-book-card { background:#fff; border:1px solid var(--line); border-radius:var(--radius-media); padding:clamp(1.5rem,3vw,2.5rem); display:grid; gap:1.75rem; box-shadow:0 18px 50px rgba(8,60,46,.07); }
+.v2-book-card fieldset { border:0; margin:0; padding:0; min-width:0; }
+.v2-book-card legend { font-family:var(--font-display); font-weight:650; font-size:1.2rem; letter-spacing:-.02em; margin-bottom:.9rem; padding:0; }
+.v2-choice-grid { display:grid; grid-template-columns:1fr 1fr; gap:.7rem; }
+.v2-choice { position:relative; display:flex; align-items:center; gap:.7rem; min-height:60px; padding:.8rem 1rem; border:1.5px solid var(--line); border-radius:14px; font-weight:750; font-size:.92rem; cursor:pointer; transition:border-color 160ms var(--ease-out), background 160ms var(--ease-out); }
+.v2-choice input { position:absolute; opacity:0; inset:0; cursor:pointer; }
+.v2-choice svg { width:1.25rem; height:1.25rem; color:var(--prime-green); flex:none; }
+.v2-choice:hover { border-color:#a9b8b0; }
+.v2-choice.is-selected { border-color:var(--prime-green); background:var(--prime-green-soft); box-shadow:inset 0 0 0 1px var(--prime-green); }
+.v2-choice:has(input:focus-visible) { outline:3px solid var(--prime-yellow); outline-offset:2px; }
+.v2-book-card .button { width:100%; }
+
+@media(max-width:1100px){
+  .v2-logos { grid-template-columns:repeat(3,1fr); }
+}
+@media(max-width:900px){
+  .v2-branch-detail, .v2-contact-grid { grid-template-columns:1fr; }
+  .v2-branch-detail-media { min-height:0; aspect-ratio:16/10; }
+  .v2-logos-rail { grid-template-columns:repeat(4,1fr); }
+}
+@media(max-width:640px){
+  .v2-logos { grid-template-columns:1fr 1fr; gap:.7rem; }
+  .v2-logos li { height:86px; padding:.8rem 1rem; }
+  .v2-logos-rail { grid-template-columns:1fr 1fr; gap:.25rem 1rem; }
+  .v2-logos-rail li { height:72px; }
+  .v2-branch-map { height:240px; }
+  .v2-branch-detail-body .button { width:100%; }
+  .v2-choice-grid { grid-template-columns:1fr; }
+  .v2-contact-quick { max-width:none; }
+}
+
+/* three eyewear categories */
+.v2-cats { grid-template-columns:repeat(3,1fr); }
+@media(max-width:900px){ .v2-cats { grid-template-columns:1fr; } }
+
+/* home medical rail: logos in one full-width row */
+.v2-medical-inner { grid-template-columns:1fr; gap:2rem; }
+.v2-logos-rail { grid-template-columns:repeat(7,1fr); gap:1rem; }
+.v2-logos-rail li { height:92px; padding:.5rem .75rem; }
+.v2-logos img[src$="fedhealth.svg"], .v2-logos img[src$="bestmed.svg"] { width:90%; max-height:none !important; }
+@media(max-width:1100px){ .v2-logos-rail { grid-template-columns:repeat(4,1fr); } }
+@media(max-width:640px){ .v2-logos-rail { grid-template-columns:1fr 1fr; } .v2-logos-rail li { height:76px; } }
