@@ -182,3 +182,37 @@ export function ConversionBand({
     </section>
   );
 }
+
+export function PageHeroV2({
+  eyebrow,
+  title,
+  copy,
+  image,
+  alt,
+  position = "center",
+  children,
+}: {
+  eyebrow: string;
+  title: ReactNode;
+  copy: string;
+  image: string;
+  alt: string;
+  position?: string;
+  children?: ReactNode;
+}) {
+  return (
+    <section className="v2-page-hero">
+      <Container className="v2-page-hero-grid">
+        <div className="v2-page-hero-copy reveal">
+          <Eyebrow>{eyebrow}</Eyebrow>
+          <h1>{title}</h1>
+          <p className="lede">{copy}</p>
+          {children && <div className="button-row">{children}</div>}
+        </div>
+        <div className="v2-page-hero-media">
+          <img src={image} alt={alt} style={{ objectPosition: position }} fetchPriority="high" decoding="async" />
+        </div>
+      </Container>
+    </section>
+  );
+}

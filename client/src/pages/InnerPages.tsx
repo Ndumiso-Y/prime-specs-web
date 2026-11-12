@@ -1,29 +1,46 @@
 import { FormEvent, useState } from "react";
-import { ArrowRight, CircleHelp, Eye, Glasses, HeartHandshake, Mail, MapPin, MessageCircle, Phone, ShieldCheck, Sun, Users } from "lucide-react";
+import { ArrowRight, CircleHelp, Eye, Glasses, HardHat, HeartHandshake, Mail, MapPin, MessageCircle, Phone, ShieldCheck, Sun, Users } from "lucide-react";
 import { Link } from "wouter";
 import { Seo } from "@/components/Seo";
-import { ArrowLink, Container, ConversionBand, EditorialVisual, Eyebrow, FeatureList, LocationBlock, PageHero, Section } from "@/components/Primitives";
+import { ArrowLink, Container, ConversionBand, EditorialVisual, Eyebrow, FeatureList, LocationBlock, PageHero, PageHeroV2, Section } from "@/components/Primitives";
 import { HomeAboutTeamSection } from "@/components/HomeAboutTeamSection";
 import { LOCATIONS, SITE, whatsappUrl } from "@/lib/site";
 
 export function EyeCare() {
+  const steps = [
+    { title: "Start with a conversation", copy: "Message or call Prime Specs to arrange your visit and ask anything you need to know beforehand." },
+    { title: "Have your eyes examined", copy: "Visit the practice for a professional eye examination in a calm, well-equipped room." },
+    { title: "Choose the right eyewear", copy: "If you need glasses, we help you pick frames and lenses that suit your prescription and your day." },
+  ];
   return <>
     <Seo title="Eye Examinations in Rustenburg | Prime Specs" description="Professional eye examinations in a reassuring environment at Prime Specs in Rustenburg. Book directly via WhatsApp." path="/eye-care" />
-    <PageHero eyebrow="Eye care" title={<>A clearer next step<br />for your eyes.</>} copy="Professional eye examinations in a calm, approachable environment—with direct help choosing the eyewear you need next." visual="care" />
-    <Section><Container className="editorial-two-col"><div><Eyebrow>What to expect</Eyebrow><h2>Professional care, explained simply.</h2></div><div><p className="lede">An eye examination is the right place to begin when your vision has changed, your prescription may need updating, or it is simply time for a check.</p><p>Prime Specs provides eye examinations in a professional setting. We keep the process clear and focus on the practical outcome: helping you understand the next step and select prescription eyewear where needed.</p><FeatureList items={["Professional eye examinations", "A reassuring practice environment", "A clear path from examination to eyewear"]} /></div></Container></Section>
-    <Section className="process-section"><Container><div className="section-heading split-heading"><Eyebrow>Your visit</Eyebrow><h2>Simple from first message to final frame.</h2></div><ol className="process-list"><li><span>01</span><div><h3>Start with a conversation</h3><p>Message or call Prime Specs to arrange your visit and confirm anything you need to know beforehand.</p></div></li><li><span>02</span><div><h3>Have your eyes examined</h3><p>Visit the practice for a professional eye examination in a calm and well-equipped setting.</p></div></li><li><span>03</span><div><h3>Choose your eyewear</h3><p>If prescription eyewear is needed, explore frames that work for your needs and everyday style.</p></div></li></ol></Container></Section>
-    <Section><Container className="story-grid"><EditorialVisual variant="care" label="Prime Specs examination equipment — authentic clinical photography slot" /><div className="story-copy story-copy-light"><Eyebrow>Before you visit</Eyebrow><h2>Using medical aid?</h2><p>We accept most medical aids, with exceptions possible. Contact the team before your visit so we can help confirm your scheme and available optical benefits.</p><ArrowLink href="/medical-aids">Medical-aid information</ArrowLink></div></Container></Section>
+    <PageHeroV2 eyebrow="Eye care" title={<>A clearer next step <span>for your eyes.</span></>} copy="Professional eye examinations in a calm, approachable practice, with help choosing the eyewear you need next." image="/images/prime-specs/eye-care/exam-room-detail.webp" alt="Examination chair and testing equipment at Prime Specs" position="center 40%">
+      <a className="button button-primary" href={whatsappUrl()} target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" /> Book via WhatsApp <ArrowRight aria-hidden="true" /></a>
+      <Link className="button button-ghost" href="/locations"><MapPin aria-hidden="true" /> Find a branch</Link>
+    </PageHeroV2>
+    <Section className="v2-band-white"><Container className="v2-two-col"><div><Eyebrow>What to expect</Eyebrow><h2>Professional care, explained simply.</h2></div><div><p className="lede">An eye examination is the right place to begin when your vision has changed, your prescription may need updating, or it is simply time for a check.</p><FeatureList items={["Professional eye examinations", "A reassuring practice environment", "A clear path from examination to eyewear"]} /></div></Container></Section>
+    <Section><Container><div className="v2-heading"><div><Eyebrow>Your visit</Eyebrow><h2>Simple from first message to final frame.</h2></div></div><ol className="v2-steps">{steps.map((step, index) => <li key={step.title}><span>0{index + 1}</span><h3>{step.title}</h3><p>{step.copy}</p></li>)}</ol></Container></Section>
+    <Section className="v2-pad-top-0"><Container><div className="v2-split"><div className="v2-split-media"><img src="/images/prime-specs/eye-care/exam-room.jpg" alt="Inside the Prime Specs examination room" loading="lazy" decoding="async" style={{ objectPosition: "center 38%" }} /></div><div className="v2-split-copy"><Eyebrow>Before you visit</Eyebrow><h2>Using medical aid?</h2><p>We accept most medical aids. Contact the team before your visit so we can help confirm your scheme and available optical benefits.</p><ArrowLink href="/medical-aids">Check medical-aid information</ArrowLink></div></div></Container></Section>
     <ConversionBand title="Book your eye examination." copy="Send Prime Specs a WhatsApp message and choose the Rustenburg location that works for you." />
   </>;
 }
 
 export function Eyewear() {
+  const categories = [
+    { icon: Glasses, title: "Prescription Eyewear", copy: "Everyday glasses built around your prescription and how you use them." },
+    { icon: Eye, title: "Frames", copy: "Shapes, sizes and finishes to try on in person at either branch." },
+    { icon: Sun, title: "Sunglasses", copy: "Sun-ready eyewear with comfort and personal style in view." },
+    { icon: HardHat, title: "Prescription Safety Glasses", copy: "Protective eyewear made to your prescription, for work that needs it." },
+  ];
   return <>
-    <Seo title="Prescription Glasses, Frames & Sunglasses | Prime Specs" description="Explore Prescription Safety Glasses, frames and sunglasses at Prime Specs in Rustenburg. Visit either branch to find eyewear for everyday life." path="/eyewear" />
-    <PageHero eyebrow="Eyewear" title={<>Frames for work.<br />Life. Everything between.</>} copy="Prescription Safety Glasses, frames and sunglasses selected in person—with room to discover what feels right on you." visual="eyewear" />
-    <Section><Container><div className="editorial-heading section-heading"><div><Eyebrow>Three ways to look</Eyebrow><h2>Practical, personal,<br />and never one-size-fits-all.</h2></div><p>Prime Specs is a place to see eyewear properly: in context, on your face, and with help nearby.</p></div><div className="product-stories"><article><span className="product-index">01</span><Glasses aria-hidden="true" /><h3>Prescription Safety Glasses</h3><p>Everyday eyewear built around your prescription and how you use it.</p></article><article><span className="product-index">02</span><Eye aria-hidden="true" /><h3>Frames</h3><p>Shapes, proportions and finishes to explore in person at our Rustenburg practices.</p></article><article><span className="product-index">03</span><Sun aria-hidden="true" /><h3>Sunglasses</h3><p>Sun-ready eyewear with comfort and personal style in view.</p></article></div></Container></Section>
-    <Section className="gallery-section"><Container><div className="gallery-mosaic"><EditorialVisual variant="eyewear" label="Prime Specs frame wall — authentic eyewear photography slot" className="gallery-tall" /><div className="gallery-copy"><Eyebrow inverse>Try them in person</Eyebrow><h2>The right frame changes how everything comes together.</h2><p>Visit either branch to browse the available selection. Exact brands and frame availability can change, so contact the team if you are looking for something specific.</p></div><EditorialVisual variant="eyewear" label="Prime Specs sunglasses — authentic product photography slot" className="gallery-wide" /></div></Container></Section>
-    <ConversionBand title="Find your next frame at Prime Specs." copy="Message us before you visit or head to either Rustenburg location." />
+    <Seo title="Prescription Glasses, Frames & Sunglasses | Prime Specs" description="Explore prescription eyewear, frames, sunglasses and prescription safety glasses at Prime Specs in Rustenburg. Visit either branch to find your next pair." path="/eyewear" />
+    <PageHeroV2 eyebrow="Eyewear" title={<>Frames for work. Life. <span>Everything between.</span></>} copy="Prescription eyewear, frames and sunglasses to try on in person at either Rustenburg branch." image="/images/prime-specs/eyewear/display-wall.jpg" alt="Wall of frames on display at Prime Specs" position="center 58%">
+      <Link className="button button-primary" href="/locations"><MapPin aria-hidden="true" /> Visit a branch <ArrowRight aria-hidden="true" /></Link>
+      <a className="button button-ghost" href={whatsappUrl("Hello Prime Specs, I would like to ask about eyewear.")} target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" /> Ask on WhatsApp</a>
+    </PageHeroV2>
+    <Section className="v2-band-white"><Container><div className="v2-heading"><div><Eyebrow>What we offer</Eyebrow><h2>Four ways to see better and look good doing it.</h2></div></div><div className="v2-cats">{categories.map(({ icon: Icon, title, copy }) => <article key={title}><Icon aria-hidden="true" /><h3>{title}</h3><p>{copy}</p></article>)}</div></Container></Section>
+    <Section><Container><div className="v2-heading"><div><Eyebrow>In store</Eyebrow><h2>See them properly. Try them on.</h2></div><p>Brands and available frames change, so message the team if you are looking for something specific.</p></div><div className="v2-gallery"><div className="v2-gallery-tall"><img src="/images/prime-specs/eyewear/display-wall.jpg" alt="Frame display wall at Prime Specs" loading="lazy" decoding="async" style={{ objectPosition: "center 60%" }} /></div><div><img src="/images/prime-specs/eyewear/product-set-card.webp" alt="Prescription and sun frames at Prime Specs" loading="lazy" decoding="async" style={{ objectPosition: "center 30%" }} /></div><div><img src="/images/prime-specs/eyewear/frames.jpg" alt="Metal frames available at Prime Specs" loading="lazy" decoding="async" style={{ objectPosition: "center 62%" }} /></div></div></Container></Section>
+    <section className="conversion-band"><Container className="conversion-grid"><div><Eyebrow inverse>Try them in person</Eyebrow><h2>The right frame changes how everything comes together.</h2><p>Visit either Rustenburg branch to browse what is in store.</p></div><Link className="button button-yellow" href="/locations"><MapPin aria-hidden="true" /> Visit a branch</Link></Container></section>
   </>;
 }
 
